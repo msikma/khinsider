@@ -7,9 +7,9 @@ export async function parseCli() {
     description: 'Downloads albums from Kingdom Hearts Insider.'
   })
 
-  parser.add_argument('URLs', {help: 'URLs to albums to download.'})
-  parser.add_argument('--prefer-mp3', {help: 'Downloads MP3 files if available.'})
-  parser.add_argument('--prefer-flac', {help: 'Downloads FLAC files if available (default).'})
+  parser.add_argument('URLs', {help: 'URLs to albums to download.', nargs: '+'})
+  parser.add_argument('--prefer-mp3', {help: 'Downloads MP3 files if available.', action: 'store_true'})
+  parser.add_argument('--prefer-flac', {help: 'Downloads FLAC files if available (default).', action: 'store_true'})
   
   const args = {...parser.parse_args()}
   const main = await import('./index.js')
