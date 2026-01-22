@@ -103,6 +103,9 @@ function findTracks($, toAbsolute) {
  */
 export function getPreferredTracks(tracks, prefer) {
   const preferredTracks = tracks.filter(file => file.type === prefer)
+  if (preferredTracks.length === 0) {
+    return tracks.map(track => track.url)
+  }
   return preferredTracks.map(track => track.url)
 }
 
