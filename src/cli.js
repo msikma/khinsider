@@ -17,7 +17,7 @@ export async function parseCli() {
   let hasErrored = false
   for (const url of args.URLs) {
     try {
-      main.downloadAlbum(url, prefer)
+      await main.downloadAlbum(url, prefer)
     }
     catch (err) {
       hasErrored = true
